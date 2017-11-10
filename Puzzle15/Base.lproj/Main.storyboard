@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -175,10 +180,21 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.88090748519999995" blue="0.19516801850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn00.png" highlightedImage="btn00.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1kU-ZZ-Zsw">
-                                <rect key="frame" x="154" y="460" width="67" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5M-tV-buM">
+                                <rect key="frame" x="112" y="526" width="151" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="シャッフル"/>
+                                <connections>
+                                    <action selector="shuffle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZ0-Lt-vQY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ7-Zv-Kvy">
+                                <rect key="frame" x="63" y="30" width="248" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95701566911685498" green="1" blue="0.74915409606003425" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -200,6 +216,7 @@
                         <outlet property="btn14" destination="jOz-By-dNc" id="0Wc-vs-WoC"/>
                         <outlet property="btn15" destination="9LO-4B-8kv" id="oRr-eG-jCj"/>
                         <outlet property="mainView" destination="0xw-vd-U6d" id="BLP-dh-GE0"/>
+                        <outlet property="timeLable" destination="NZ7-Zv-Kvy" id="sW2-bp-Yvf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -208,7 +225,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn00.png" width="90" height="90"/>
         <image name="img01" width="90" height="90"/>
         <image name="img02" width="90" height="90"/>
         <image name="img03" width="90" height="90"/>
