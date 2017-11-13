@@ -12,6 +12,7 @@
 		40906D771FB43E950030E096 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40906D751FB43E950030E096 /* Main.storyboard */; };
 		40906D791FB43E950030E096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40906D781FB43E950030E096 /* Assets.xcassets */; };
 		40906D7C1FB43E950030E096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40906D7A1FB43E950030E096 /* LaunchScreen.storyboard */; };
+		4099E90E1FB985EB001BE7D3 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E90D1FB985EB001BE7D3 /* MyButton.swift */; };
 		6E4739311FB892E9009F30A8 /* imgs in Resources */ = {isa = PBXBuildFile; fileRef = 6E4739301FB892E9009F30A8 /* imgs */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		40906D781FB43E950030E096 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40906D7B1FB43E950030E096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40906D7D1FB43E950030E096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4099E90D1FB985EB001BE7D3 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		6E4739301FB892E9009F30A8 /* imgs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = imgs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				40906D781FB43E950030E096 /* Assets.xcassets */,
 				40906D7A1FB43E950030E096 /* LaunchScreen.storyboard */,
 				40906D7D1FB43E950030E096 /* Info.plist */,
+				4099E90D1FB985EB001BE7D3 /* MyButton.swift */,
 			);
 			path = Puzzle15;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				40906D741FB43E950030E096 /* ViewController.swift in Sources */,
 				40906D721FB43E950030E096 /* AppDelegate.swift in Sources */,
+				4099E90E1FB985EB001BE7D3 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
