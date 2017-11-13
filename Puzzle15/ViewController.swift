@@ -69,7 +69,7 @@ class ViewController: UIViewController {
                 }, completion: { finished in
                     // 完了チェック
                     if(self.checkComplete()){
-                        
+                        self.completed()
                     }
                 })
             } else if(isBlankRight(x: btn.frame.origin.x, y: btn.frame.origin.y)){
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
                 }, completion: { finished in
                     // 完了チェック
                     if(self.checkComplete()){
-                        
+                        self.completed()
                     }
                 })
             } else if(isBlankUpper(x: btn.frame.origin.x, y: btn.frame.origin.y)){
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
                 }, completion: { finished in
                     // 完了チェック
                     if(self.checkComplete()){
-                        
+                        self.completed()
                     }
                 })
             } else if(isBlankBottom(x: btn.frame.origin.x, y: btn.frame.origin.y)){
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
                 }, completion: { finished in
                     // 完了チェック
                     if(self.checkComplete()){
-                        
+                        self.completed()
                     }
                 })
             }
@@ -332,6 +332,19 @@ class ViewController: UIViewController {
         print (time)
         self.timeLable.text = time
         
+    }
+    func completed(){
+        if(timer != nil){
+            timer.invalidate()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "CompleteViewController") as! CompleteViewController
+            viewController.modalPresentationStyle = .overCurrentContext
+            
+            present(viewController, animated: true, completion: {
+                viewController.timeLabel.text = self.timeLable.text
+                viewController.checkrecord()
+            })
+        }
     }
 }
 

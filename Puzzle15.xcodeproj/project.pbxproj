@@ -13,6 +13,7 @@
 		40906D791FB43E950030E096 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40906D781FB43E950030E096 /* Assets.xcassets */; };
 		40906D7C1FB43E950030E096 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40906D7A1FB43E950030E096 /* LaunchScreen.storyboard */; };
 		4099E90E1FB985EB001BE7D3 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E90D1FB985EB001BE7D3 /* MyButton.swift */; };
+		4099E9101FB9981C001BE7D3 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4099E90F1FB9981C001BE7D3 /* CompleteViewController.swift */; };
 		6E4739311FB892E9009F30A8 /* imgs in Resources */ = {isa = PBXBuildFile; fileRef = 6E4739301FB892E9009F30A8 /* imgs */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		40906D7B1FB43E950030E096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40906D7D1FB43E950030E096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4099E90D1FB985EB001BE7D3 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		4099E90F1FB9981C001BE7D3 /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		6E4739301FB892E9009F30A8 /* imgs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = imgs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				40906D7A1FB43E950030E096 /* LaunchScreen.storyboard */,
 				40906D7D1FB43E950030E096 /* Info.plist */,
 				4099E90D1FB985EB001BE7D3 /* MyButton.swift */,
+				4099E90F1FB9981C001BE7D3 /* CompleteViewController.swift */,
 			);
 			path = Puzzle15;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				40906D741FB43E950030E096 /* ViewController.swift in Sources */,
 				40906D721FB43E950030E096 /* AppDelegate.swift in Sources */,
 				4099E90E1FB985EB001BE7D3 /* MyButton.swift in Sources */,
+				4099E9101FB9981C001BE7D3 /* CompleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
