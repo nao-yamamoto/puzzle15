@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var shuffleBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
     @IBOutlet weak var timeLable: UILabel!
 
     @IBOutlet weak var mainView: UIView!
@@ -49,6 +51,18 @@ class ViewController: UIViewController {
             [0,btnWHSize*3],[btnWHSize,btnWHSize*3],[btnWHSize*2,btnWHSize*3],  [btnWHSize*3,btnWHSize*3]
         ]
 
+        self.resetBtn.layer.borderColor = UIColor.lightGray.cgColor
+        self.resetBtn.layer.borderWidth = 1
+        self.resetBtn.layer.cornerRadius = 5
+
+        self.shuffleBtn.layer.borderColor = UIColor.lightGray.cgColor
+        self.shuffleBtn.layer.borderWidth = 1
+        self.shuffleBtn.layer.cornerRadius = 5
+        
+        self.mainView.layer.borderColor = UIColor.lightGray.cgColor
+        self.mainView.layer.borderWidth = 1
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -290,12 +304,44 @@ class ViewController: UIViewController {
     }
     @IBAction func shuffle(_ sender: Any) {
         var i = 0
-        while(i < 5000){
+        while(i < 10000){
             shuffleOne()
             i += 1
         }
         startTimer()
     }
+    
+    @IBAction func reset(_ sender: Any) {
+        self.timeLable.text = "00:00.00"
+        if(timer != nil){
+            timer.invalidate()
+            timer = nil
+        }
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            self.btn01.frame = CGRect(x: 0, y: 0, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn02.frame = CGRect(x: self.btnWHSize, y: 0, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn03.frame = CGRect(x: self.btnWHSize*2, y: 0, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn04.frame = CGRect(x: self.btnWHSize*3, y: 0, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn05.frame = CGRect(x: 0, y: self.btnWHSize, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn06.frame = CGRect(x: self.btnWHSize, y: self.btnWHSize, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn07.frame = CGRect(x: self.btnWHSize*2, y: self.btnWHSize, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn08.frame = CGRect(x: self.btnWHSize*3, y: self.btnWHSize, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn09.frame = CGRect(x: 0, y: self.btnWHSize*2, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn10.frame = CGRect(x: self.btnWHSize, y: self.btnWHSize*2, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn11.frame = CGRect(x: self.btnWHSize*2, y: self.btnWHSize*2, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn12.frame = CGRect(x: self.btnWHSize*3, y: self.btnWHSize*2, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn13.frame = CGRect(x: 0, y: self.btnWHSize*3, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn14.frame = CGRect(x: self.btnWHSize, y: self.btnWHSize*3, width: self.btnWHSize, height: self.btnWHSize)
+            self.btn15.frame = CGRect(x: self.btnWHSize*2, y: self.btnWHSize*3, width: self.btnWHSize, height: self.btnWHSize)
+
+            
+        }, completion: { finished in
+
+        })
+
+        
+    }
+    
     
     func startTimer() {
         if timer != nil{
@@ -339,9 +385,9 @@ class ViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "CompleteViewController") as! CompleteViewController
             viewController.modalPresentationStyle = .overCurrentContext
-            
+            viewController.completeTime = self.timeLable.text
             present(viewController, animated: true, completion: {
-                viewController.timeLabel.text = self.timeLable.text
+//                viewController.timeLabel.text = self.timeLable.text
                 viewController.checkrecord()
             })
         }
