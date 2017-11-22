@@ -304,7 +304,7 @@ class ViewController: UIViewController {
     }
     @IBAction func shuffle(_ sender: Any) {
         var i = 0
-        while(i < 10000){
+        while(i < 20){
             shuffleOne()
             i += 1
         }

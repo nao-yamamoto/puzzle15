@@ -70,12 +70,10 @@ class CompleteViewController: UIViewController {
             self.mybestLabel.isHidden = false
             userDefaults.set(self.completeTime, forKey: "besttime")
         } else {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "HH:mm.ss"
-            let date1 = formatter.date(from: besttime!)!
-            let date2 = formatter.date(from: self.completeTime)!
-            
-            if (date1 > date2){
+            let date1 : Int? = time2num(strTime: besttime!)
+            let date2 : Int? = time2num(strTime: self.completeTime)
+
+            if (date1! > date2!){
                 print("best")
                 self.mybestLabel.isHidden = false
                 self.mybestLabel.text = "自己ベスト更新"
@@ -92,6 +90,22 @@ class CompleteViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: "besttime")
 
+    }
+    
+    func time2num(strTime:String?)->Int?{
+        var num: Int? = 0
+        if (strTime == nil || strTime == ""){
+            num = 0
+        } else {
+            let arr1 = strTime?.components(separatedBy: ":")
+            let a : String? = arr1?[1]
+            let arr2 = a?.components(separatedBy: ".")
+            num = Int(arr1![0])!*60*100 + Int(arr2![0])!*100 + Int(arr2![1])!
+            
+            
+        }
+        
+        return num
     }
 
 }
