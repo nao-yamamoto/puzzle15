@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     var positions: [[CGFloat]] = []
     let btnWHSize: CGFloat = 90.0;
     
-    weak var timer: Timer!
+    var timer: Timer?
     var startTime = Date()
     
     override func viewDidLoad() {
@@ -62,7 +62,10 @@ class ViewController: UIViewController {
         self.mainView.layer.borderColor = UIColor.lightGray.cgColor
         self.mainView.layer.borderWidth = 1
 
-        
+        self.timeLable.layer.cornerRadius = 5
+        self.timeLable.layer.masksToBounds = true
+        self.timeLable.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        self.timeLable.text = "00:00.00"
     }
 
     override func didReceiveMemoryWarning() {
@@ -304,7 +307,7 @@ class ViewController: UIViewController {
     }
     @IBAction func shuffle(_ sender: Any) {
         var i = 0
-        while(i < 20){
+        while(i < 5000){
             shuffleOne()
             i += 1
         }
@@ -314,7 +317,7 @@ class ViewController: UIViewController {
     @IBAction func reset(_ sender: Any) {
         self.timeLable.text = "00:00.00"
         if(timer != nil){
-            timer.invalidate()
+            timer?.invalidate()
             timer = nil
         }
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
@@ -346,7 +349,7 @@ class ViewController: UIViewController {
     func startTimer() {
         if timer != nil{
             // timerが起動中なら一旦破棄する
-            timer.invalidate()
+            timer?.invalidate()
         }
         
         timer = Timer.scheduledTimer(
@@ -361,6 +364,16 @@ class ViewController: UIViewController {
     @objc func timerCounter() {
         // タイマー開始からのインターバル時間
         let currentTime = Date().timeIntervalSince(startTime)
+        if (currentTime > 60*59+59){
+            timer?.invalidate()
+            timer = nil
+            let alert = UIAlertController(
+                title: "タイムオーバー",
+                message: "1時間でタイムオーバーです",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
         
         // fmod() 余りを計算
         let minute = (Int)(fmod((currentTime/60), 60))
@@ -381,7 +394,7 @@ class ViewController: UIViewController {
     }
     func completed(){
         if(timer != nil){
-            timer.invalidate()
+            timer?.invalidate()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyboard.instantiateViewController(withIdentifier: "CompleteViewController") as! CompleteViewController
             viewController.modalPresentationStyle = .overCurrentContext

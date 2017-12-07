@@ -11,10 +11,13 @@ import UIKit
 class CompleteViewController: UIViewController {
 
     @IBOutlet weak var resetBestTimeBtn: UIButton!
-    var completeTime: String!
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var mybestLabel: UILabel!
+    @IBOutlet weak var timeBackView: UIView!
+    
+    var completeTime: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +33,9 @@ class CompleteViewController: UIViewController {
         self.resetBestTimeBtn.layer.borderWidth = 1
         self.resetBestTimeBtn.layer.cornerRadius = 5
 
+        self.timeBackView.layer.cornerRadius = 5
+        self.timeBackView.layer.masksToBounds = true
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +44,7 @@ class CompleteViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.mybestLabel.isHidden = true
-        self.timeLabel.text = completeTime
+        self.timeLabel.text = completeTime!
     }
     override func viewDidAppear(_ animated: Bool) {
     }
@@ -68,16 +74,16 @@ class CompleteViewController: UIViewController {
         if(besttime == nil || besttime == ""){
             self.mybestLabel.text = "自己ベスト更新"
             self.mybestLabel.isHidden = false
-            userDefaults.set(self.completeTime, forKey: "besttime")
+            userDefaults.set(self.completeTime!, forKey: "besttime")
         } else {
             let date1 : Int? = time2num(strTime: besttime!)
-            let date2 : Int? = time2num(strTime: self.completeTime)
+            let date2 : Int? = time2num(strTime: self.completeTime!)
 
             if (date1! > date2!){
                 print("best")
                 self.mybestLabel.isHidden = false
                 self.mybestLabel.text = "自己ベスト更新"
-                userDefaults.set(self.completeTime, forKey: "besttime")
+                userDefaults.set(self.completeTime!, forKey: "besttime")
             } else {
                 self.mybestLabel.isHidden = false
                 self.mybestLabel.text = "ベストタイム：" + besttime!
@@ -89,7 +95,8 @@ class CompleteViewController: UIViewController {
     @IBAction func resetBestTime(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         userDefaults.removeObject(forKey: "besttime")
-
+        
+        self.mybestLabel.isHidden = true
     }
     
     func time2num(strTime:String?)->Int?{
